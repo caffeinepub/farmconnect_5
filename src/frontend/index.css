@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── FarmConnect OKLCH Design Tokens ── */
+/* Palette: Deep forest green primary, warm amber accent, earthy neutrals */
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque-Variable.woff2") format("woff2");
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.875rem;
+
+    /* Forest green primary */
+    --background: 0.97 0.012 100;
+    --foreground: 0.18 0.04 130;
+
+    --card: 0.99 0.006 90;
+    --card-foreground: 0.18 0.04 130;
+
+    --popover: 0.99 0.006 90;
+    --popover-foreground: 0.18 0.04 130;
+
+    /* Deep forest green */
+    --primary: 0.42 0.12 145;
+    --primary-foreground: 0.98 0.01 100;
+
+    /* Warm cream secondary */
+    --secondary: 0.94 0.025 85;
+    --secondary-foreground: 0.25 0.07 130;
+
+    --muted: 0.93 0.018 95;
+    --muted-foreground: 0.52 0.04 130;
+
+    /* Amber accent */
+    --accent: 0.82 0.14 75;
+    --accent-foreground: 0.15 0.04 60;
+
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+
+    --border: 0.88 0.025 100;
+    --input: 0.88 0.025 100;
+    --ring: 0.42 0.12 145;
+
+    /* Chart colors */
+    --chart-1: 0.42 0.12 145;
+    --chart-2: 0.82 0.14 75;
+    --chart-3: 0.6 0.118 184.704;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.577 0.245 27.325;
+
+    /* Sidebar */
+    --sidebar: 0.25 0.08 145;
+    --sidebar-foreground: 0.95 0.015 90;
+    --sidebar-primary: 0.82 0.14 75;
+    --sidebar-primary-foreground: 0.15 0.04 60;
+    --sidebar-accent: 0.35 0.09 145;
+    --sidebar-accent-foreground: 0.95 0.015 90;
+    --sidebar-border: 0.35 0.07 145;
+    --sidebar-ring: 0.82 0.14 75;
+
+    /* Farm-specific tokens */
+    --farm-green: 0.42 0.12 145;
+    --farm-green-dark: 0.28 0.09 145;
+    --farm-green-light: 0.88 0.06 145;
+    --farm-amber: 0.82 0.14 75;
+    --farm-amber-dark: 0.65 0.15 65;
+    --farm-earth: 0.62 0.08 60;
+    --farm-sky: 0.72 0.1 230;
+    --farm-soil: 0.42 0.08 55;
+  }
+
+  .dark {
+    --background: 0.14 0.03 130;
+    --foreground: 0.95 0.015 90;
+    --card: 0.19 0.04 135;
+    --card-foreground: 0.95 0.015 90;
+    --popover: 0.22 0.04 135;
+    --popover-foreground: 0.95 0.015 90;
+    --primary: 0.72 0.14 145;
+    --primary-foreground: 0.12 0.03 130;
+    --secondary: 0.25 0.05 130;
+    --secondary-foreground: 0.92 0.02 90;
+    --muted: 0.22 0.03 130;
+    --muted-foreground: 0.65 0.04 120;
+    --accent: 0.82 0.14 75;
+    --accent-foreground: 0.12 0.04 60;
+    --destructive: 0.704 0.191 22.216;
+    --destructive-foreground: 0.205 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 15%;
+    --ring: 0.72 0.14 145;
+    --sidebar: 0.18 0.05 140;
+    --sidebar-foreground: 0.95 0.015 90;
+    --sidebar-primary: 0.82 0.14 75;
+    --sidebar-primary-foreground: 0.15 0.04 60;
+    --sidebar-accent: 0.25 0.06 138;
+    --sidebar-accent-foreground: 0.95 0.015 90;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.72 0.14 145;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Cabinet Grotesk", sans-serif;
+    font-feature-settings: "cv11", "ss01";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+  }
+}
+
+/* Custom farm utility classes */
+@layer utilities {
+  .farm-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.42 0.12 145) 0%,
+      oklch(0.32 0.1 155) 100%
+    );
+  }
+
+  .amber-gradient {
+    background: linear-gradient(
+      135deg,
+      oklch(0.82 0.14 75) 0%,
+      oklch(0.72 0.16 65) 100%
+    );
+  }
+
+  .earth-gradient {
+    background: linear-gradient(
+      180deg,
+      oklch(0.97 0.012 100) 0%,
+      oklch(0.93 0.025 90) 100%
+    );
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .status-available {
+    @apply bg-green-100 text-green-800 border-green-200;
+  }
+
+  .status-booked {
+    @apply bg-red-100 text-red-800 border-red-200;
+  }
+
+  .status-pending {
+    @apply bg-yellow-100 text-yellow-800 border-yellow-200;
+  }
+}
